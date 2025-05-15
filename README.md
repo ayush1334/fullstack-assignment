@@ -2,34 +2,36 @@
 
 ## Task Overview
 
-**Build an Up/Down Counter Web App**
+**Build a Countdown Timer Web App**
 
-Create a simple web application that allows a user to:
+Create a web application that allows users to:
 
-- Increase the counter (Up)
-- Decrease the counter (Down)
-- Reset the counter to zero
-
-The counter state should be **stored and updated on the backend via API calls**.
+- Set a **counter name** and a **target date/time** for a countdown timer via the frontend.
+- Save this information to the backend and persist it in a database.
+- Once the timer is set and saved successfully, the frontend displays a live countdown (days, hours, minutes, seconds) until the target date/time.
+- The user should also be able to **reset** the countdown from the frontend.
 
 ---
 
 ## Requirements
 
-- **Frontend:** Use React (preferred), or any modern frontend framework.
-- **Backend:** Use Node.js (Express), Python (FastAPI/Django), or Java (Spring Boot).
+- **Frontend:** Use React (preferred) or any modern frontend framework.
+- **Backend:** Use Python (FastAPI/Django), Node.js (Express), or Java (Spring Boot).
+- **Database:** Persist the timer data (counter name, target date/time) using PostgreSQL, MongoDB, or SQLite/JSON file.
 - **API:** RESTful endpoints between frontend and backend.
-- **Data Persistence:**
-  - By default, store the counter in-memory (server restarts reset counter).
-  - **Optional:** Use a database (PostgreSQL, MongoDB, or SQLite/JSON file) to persist the counter value.
-- **Authentication:** Not required for this assessment, but bonus if you secure the APIs with JWT.
+- **Input Validation:**  
+  - **Counter name** must not be empty and should be a reasonable length (e.g., 2–32 characters).
+  - **Date/time** must be a valid future datetime.
+- **User Feedback:** Show clear error or success messages for actions.
+- **Responsiveness:** UI should be usable on desktop and mobile.
+- **README:** Provide clear run/setup instructions.
 
 ---
 
 ## Deliverables
 
 - Source code (GitHub repo or zip)
-- Simple README with clear run instructions
+- Simple README with clear instructions to run both frontend and backend
 
 ---
 
@@ -37,30 +39,31 @@ The counter state should be **stored and updated on the backend via API calls**.
 
 ### Frontend
 
-- Display the current counter value
-- Button to increment (Up)
-- Button to decrement (Down)
-- Button to reset
+- Form to input **counter name** and **target date/time**
+- Button to set/start the countdown (saves to backend)
+- Button to reset the countdown (removes or resets timer on backend)
+- Display live countdown (days, hours, minutes, seconds) after setting
+- Show error or success messages for actions
 
 ### Backend
 
-- `GET /counter` — Get current counter value
-- `POST /counter/up` — Increment counter
-- `POST /counter/down` — Decrement counter
-- `POST /counter/reset` — Reset counter
+- `POST /timer` — Save a new timer (name + target date/time)
+- `GET /timer` — Get the current timer (name + target date/time)
+- `DELETE /timer` — Reset/delete the timer
+
+
+- Persist data in a database
 
 ---
 
-## Optional Features (Bonus)
+## Optional (Bonus)
 
-- **Data persistence:** Store the counter value in a database (PostgreSQL, MongoDB, or file).
-- **JWT Authentication:** Secure the endpoints with JWT tokens.
-- **Monitoring & Logging:**  Add application-level logging for key actions (API requests, errors, state changes).  
-
-- **Timestamp/history log:** Show a log of counter changes (last N actions).
+- **Support multiple timers:** Allow user to create, view, and delete multiple named timers.
+- **JWT Authentication:** Secure timer endpoints.
+- **Monitoring & Logging:** Log timer changes, errors, API usage.
 - **Responsive UI:** Use Tailwind CSS or similar.
-- **Dockerize the application:** Provide Dockerfile and Docker Compose for easy setup.
-- **API validation:** Add input validation or error handling.
+- **Dockerize** the application.
+- **Advanced error handling:** Graceful handling of API/database failures.
 
 ---
 
@@ -72,10 +75,12 @@ The counter state should be **stored and updated on the backend via API calls**.
 
 ## Evaluation Criteria
 
-- Completeness and correctness of features
-- Clean, readable, and maintainable code
+- Functionality: Does the core workflow work?
+- Code quality: Clean, readable, and maintainable code
 - Proper API usage and frontend/backend separation
+- Input validation and user experience
 - Clear setup and run instructions
-- Implementation of any optional bonus features
 
 ---
+
+**Good luck!**
