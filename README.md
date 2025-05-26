@@ -9,14 +9,14 @@ Create a web application that allows users to:
 - Set a **counter name** and a **target date/time** for a countdown timer via the frontend.
 - Save this information to the backend and persist it in a database.
 - Once the timer is set and saved successfully, the frontend displays a live countdown (days, hours, minutes, seconds) until the target date/time.
-- The user should also be able to **reset** the countdown from the frontend.
+- The user should also be able to **update** or **reset** the countdown from the frontend.
 
 ---
 
 ## Requirements
 
 - **Frontend:** Use React (preferred) or any modern frontend framework.
-- **Backend:** Use Python (FastAPI/Django), Node.js (Express), or Java (Spring Boot).
+- **Backend:** Use Node.js (Express), Python (FastAPI/Django), or Java (Spring Boot).
 - **Database:** Persist the timer data (counter name, target date/time) using PostgreSQL, MongoDB, or SQLite/JSON file.
 - **API:** RESTful endpoints between frontend and backend.
 - **Input Validation:**  
@@ -40,8 +40,9 @@ Create a web application that allows users to:
 ### Frontend
 
 - Form to input **counter name** and **target date/time**
-- Button to set/start the countdown (saves to backend)
-- Button to reset the countdown (removes or resets timer on backend)
+- Button to **set/start** the countdown (saves to backend)
+- Button to **update** the countdown (edit and save new counter name or target date/time)
+- Button to **reset** the countdown (removes or resets timer on backend)
 - Display live countdown (days, hours, minutes, seconds) after setting
 - Show error or success messages for actions
 
@@ -49,8 +50,8 @@ Create a web application that allows users to:
 
 - `POST /timer` — Save a new timer (name + target date/time)
 - `GET /timer` — Get the current timer (name + target date/time)
+- `PUT /timer` — **Update** the timer (edit counter name or target date/time)
 - `DELETE /timer` — Reset/delete the timer
-
 
 - Persist data in a database
 
