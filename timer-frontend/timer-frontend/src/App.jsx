@@ -18,7 +18,8 @@ function App() {
         method: "POST",
         params:{
           updatedTimer: timer,
-          updatedAt: new Date()
+          updatedAt: new Date(),
+          userId: 1
         }
       });
       const { data } = res;
@@ -31,7 +32,7 @@ function App() {
   const getTimer = async () => {
     try {
       const res = await axios({
-        url: "http://localhost:3000/get-timer",
+        url: "http://localhost:3000/get-timer/1",
         method: "GET",
       });
       const { data } = res;
